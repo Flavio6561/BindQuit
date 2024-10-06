@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "bindquit",
+	"version": "${version}",
+	"name": "BindQuit",
+	"description": "Simple keybind to quit out of world",
+	"authors": [
+		"Flavio6561"
+	],
+	"contact": {
+		"sources": "https://github.com/Flavio6561/BindQuit",
+		"issues": "https://github.com/Flavio6561/BindQuit/issues",
+		"homepage": "https://github.com/Flavio6561/BindQuit"
+	},
+	"icon": "assets/bindquit/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"com.bindquit.BindQuitClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
