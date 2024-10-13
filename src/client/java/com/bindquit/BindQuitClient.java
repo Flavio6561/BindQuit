@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.gui.screen.DisconnectedScreen;
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
@@ -26,8 +27,13 @@ public class BindQuitClient implements ClientModInitializer {
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			if (disconnectKey.wasPressed()) {
 				if (client.world != null && !client.isInSingleplayer()) {
-					client.disconnect();
-					client.setScreen(new DisconnectedScreen(null, Text.literal(""), Text.literal("You successfully disconnected")));
+					client.disconnect(new DisconnectedScreen(null, Text.literal(""), Text.literal("You successfully disconnected")));
+				} else if (client.isInSingleplayer()) {
+					MinecraftServer server = client.getServer();
+					if (server != null) {
+						server.stop(true);
+						client.disconnect(new DisconnectedScreen(null, Text.literal(""), Text.literal("You successfully disconnected")));
+					}
 				}
 			}
 		});
