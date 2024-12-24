@@ -32,7 +32,7 @@ public class BindQuitClient implements ClientModInitializer {
 					MinecraftServer server = client.getServer();
 					if (server != null) {
 						server.stop(true);
-						client.disconnect(new DisconnectedScreen(null, Text.literal(""), Text.literal("You successfully disconnected")));
+						client.disconnect(new DisconnectedScreen(null, Text.literal(""), Text.literal("You successfully saved and quit")));
 					}
 				}
 			}
