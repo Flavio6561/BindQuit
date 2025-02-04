@@ -19,7 +19,7 @@ public class BindQuitClient implements ClientModInitializer {
 		LOGGER.info("BindQuit initialized with success");
 		disconnectKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
 				"Disconnect key",
-				GLFW.GLFW_KEY_K,
+				GLFW.GLFW_KEY_G,
 				"BindQuit"
 		));
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -30,9 +30,8 @@ public class BindQuitClient implements ClientModInitializer {
 						client.disconnect(new DisconnectedScreen(null, Text.literal(""), Text.literal("You saved and quit")));
 					}
 				} else {
-					if (client.getNetworkHandler() != null && client.getNetworkHandler().getConnection() != null) {
+					if (client.getNetworkHandler() != null && client.getNetworkHandler().getConnection() != null)
 						client.getNetworkHandler().getConnection().disconnect(Text.literal("You disconnected"));
-					}
 				}
 			}
 		});
