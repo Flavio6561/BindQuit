@@ -16,24 +16,16 @@ public class BindQuitClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		LOGGER.info("BindQuit initialized with success");
-		disconnectKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-				"Disconnect key",
-				GLFW.GLFW_KEY_G,
-				"BindQuit"
-		));
+		disconnectKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("Disconnect key", GLFW.GLFW_KEY_G, "BindQuit"));
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			if (disconnectKey.wasPressed()) {
-				if (client.isInSingleplayer()) {
-					if (client.getServer() != null) {
-						client.getServer().stop(true);
-						client.disconnect(new DisconnectedScreen(null, Text.literal(""), Text.literal("You saved and quit")));
-					}
-				} else {
-					if (client.getNetworkHandler() != null && client.getNetworkHandler().getConnection() != null)
-						client.getNetworkHandler().getConnection().disconnect(Text.literal("You disconnected"));
-				}
+				if (client.isInSingleplayer() && client.getServer() != null) {
+					client.getServer().stop(true);
+					client.disconnect(new DisconnectedScreen(null, Text.literal(""), Text.literal("You saved and quit")));
+				} else if (client.getNetworkHandler() != null)
+					client.getNetworkHandler().getConnection().disconnect(Text.literal("You disconnected"));
 			}
 		});
+		LOGGER.info("BindQuit initialized");
 	}
 }
