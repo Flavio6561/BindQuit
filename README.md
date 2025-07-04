@@ -1,13 +1,6 @@
-## Bindquit,
-a mod that disconnects you with the press of a button
+## BindQuit branch for 1.21 - 1.21.5
 
-### Other:
->![BindExample](https://raw.githubusercontent.com/Flavio6561/Gallery/refs/heads/main/BindQuit/Keybind.png)  
-> `Keybind setting is in the vanilla keybind menu, 'G' by default`  
->   
-> ![TextExample](https://raw.githubusercontent.com/Flavio6561/Gallery/refs/heads/main/BindQuit/MultiplayerDisconnect.png)  
-> `A multiplayer disconnect screen`  
-> - Works in both multiplayer and singleplayer
+### See [master](https://github.com/Flavio6561/BindQuit)
 
 ### Links:
 > - [GitHub page](https://github.com/Flavio6561/BindQuit)  
