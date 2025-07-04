@@ -7,9 +7,10 @@
 	"authors": [
 		"Flavio6561"
 	],
+	"license": "GPL-3.0",
 	"contact": {
-		"issues": "https://github.com/Flavio6561/Tiers/issues",
-		"homepage": "https://github.com/Flavio6561/Tiers"
+		"issues": "https://github.com/Flavio6561/BindQuit/issues",
+		"homepage": "https://github.com/Flavio6561/BindQuit"
 	},
 	"custom" : {
 		"modmenu" : {
@@ -29,7 +30,10 @@
 	},
 	"depends": {
 		"fabricloader": ">=0.16.14",
-		"minecraft": "~1.21",
+		"minecraft": [
+			"1.21.6",
+			"1.21.7"
+		],
 		"java": ">=21",
 		"fabric-api": "*"
 	}

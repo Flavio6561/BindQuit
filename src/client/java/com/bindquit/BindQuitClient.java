@@ -21,7 +21,7 @@ public class BindQuitClient implements ClientModInitializer {
 			if (disconnectKey.wasPressed()) {
 				if (client.isInSingleplayer() && client.getServer() != null) {
 					client.getServer().stop(true);
-					client.disconnect(new DisconnectedScreen(null, Text.literal(""), Text.literal("You saved and quit")));
+					client.disconnect(new DisconnectedScreen(null, Text.literal(""), Text.literal("You saved and quit")), false);
 				} else if (client.getNetworkHandler() != null)
 					client.getNetworkHandler().getConnection().disconnect(Text.literal("You disconnected"));
 			}
