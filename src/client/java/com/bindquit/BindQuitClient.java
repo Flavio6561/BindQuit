@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.gui.screen.DisconnectedScreen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +16,7 @@ public class BindQuitClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        disconnectKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("Disconnect key", GLFW.GLFW_KEY_G, KeyBinding.Category.create(Identifier.of("bindquit"))));
+        disconnectKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("Disconnect key", GLFW.GLFW_KEY_G, "BindQuit"));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (disconnectKey.wasPressed()) {
                 if (client.isInSingleplayer() && client.getServer() != null) {
