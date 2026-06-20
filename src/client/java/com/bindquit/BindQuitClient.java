@@ -12,21 +12,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class BindQuitClient implements ClientModInitializer {
-	private static final Logger LOGGER = LoggerFactory.getLogger(BindQuitClient.class);
-	private static KeyBinding disconnectKey;
+    private static final Logger LOGGER = LoggerFactory.getLogger(BindQuitClient.class);
+    private static KeyBinding disconnectKey;
 
-	@Override
-	public void onInitializeClient() {
-		disconnectKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("Disconnect key", GLFW.GLFW_KEY_G, KeyBinding.Category.create(Identifier.of("bindquit"))));
-		ClientTickEvents.END_CLIENT_TICK.register(client -> {
-			if (disconnectKey.wasPressed()) {
-				if (client.isInSingleplayer() && client.getServer() != null) {
-					client.getServer().stop(true);
-					client.disconnect(new DisconnectedScreen(null, Text.literal(""), Text.literal("You saved and quit")), false);
-				} else if (client.getNetworkHandler() != null)
-					client.getNetworkHandler().getConnection().disconnect(Text.literal("You disconnected"));
-			}
-		});
-		LOGGER.info("BindQuit initialized");
-	}
+    @Override
+    public void onInitializeClient() {
+        disconnectKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("Disconnect key", GLFW.GLFW_KEY_G, KeyBinding.Category.create(Identifier.of("bindquit"))));
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (disconnectKey.wasPressed()) {
+                if (client.isInSingleplayer() && client.getServer() != null) {
+                    client.getServer().stop(true);
+                    client.disconnect(new DisconnectedScreen(null, Text.literal(""), Text.literal("You saved and quit")), false);
+                } else if (client.getNetworkHandler() != null)
+                    client.getNetworkHandler().getConnection().disconnect(Text.literal("You disconnected"));
+            }
+        });
+        LOGGER.info("BindQuit initialized");
+    }
 }
