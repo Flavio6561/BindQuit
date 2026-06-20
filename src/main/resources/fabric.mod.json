@@ -1,41 +1,42 @@
 {
-	"schemaVersion": 1,
-	"id": "bindquit",
-	"version": "${version}",
-	"name": "BindQuit",
-	"description": "Disconnects you with the press of a button",
-	"authors": [
-		"Flavio6561"
-	],
-	"license": "GPL-3.0",
-	"contact": {
-		"issues": "https://github.com/Flavio6561/BindQuit/issues",
-		"homepage": "https://github.com/Flavio6561/BindQuit"
-	},
-	"custom" : {
-		"modmenu" : {
-			"links" : {
-				"GitHub": "https://github.com/Flavio6561/BindQuit",
-				"Modrinth page": "https://modrinth.com/mod/bindquit",
-				"Changelogs" : "https://github.com/Flavio6561/BindQuit/wiki/Version-changelogs",
-				"GitHub Issues": "https://github.com/Flavio6561/BindQuit/issues"
-			}
-		}
-	},
-	"icon": "assets/bindquit/icon.png",
-	"entrypoints": {
-		"client": [
-			"com.bindquit.BindQuitClient"
-		]
-	},
-	"depends": {
-		"fabricloader": ">=0.16.14",
-		"minecraft": [
-			"1.21.9",
-			"1.21.10",
-            "1.21.11"
-		],
-		"java": ">=21",
-		"fabric-api": "*"
-	}
+  "schemaVersion": 1,
+  "id": "bindquit",
+  "version": "${version}",
+  "name": "BindQuit",
+  "description": "Disconnects you with the press of a button",
+  "authors": [
+    "Flavio6561"
+  ],
+  "license": "GPL-3.0",
+  "contact": {
+    "issues": "https://github.com/Flavio6561/BindQuit/issues",
+    "homepage": "https://github.com/Flavio6561/BindQuit"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "GitHub": "https://github.com/Flavio6561/BindQuit",
+        "Modrinth page": "https://modrinth.com/mod/bindquit",
+        "Changelogs": "https://github.com/Flavio6561/BindQuit/wiki/Version-changelogs",
+        "GitHub Issues": "https://github.com/Flavio6561/BindQuit/issues"
+      }
+    }
+  },
+  "icon": "assets/bindquit/icon.png",
+  "entrypoints": {
+    "client": [
+      "com.bindquit.BindQuitClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": [
+      "26.1",
+      "26.1.1",
+      "26.1.2",
+      "26.2"
+    ],
+    "java": ">=25",
+    "fabric-api": "*"
+  }
 }
